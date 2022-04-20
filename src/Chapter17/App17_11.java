@@ -1,6 +1,6 @@
 package Chapter17;
 import java.awt.*;
-public class App7_11 {
+public class App17_11 {
 	static Frame frm=new Frame("Checkbox class");
 	static Checkbox ckb1= new Checkbox("Epson 5900L",false);
 	static Checkbox ckb2= new Checkbox("HP LaserJet 4p",true);
