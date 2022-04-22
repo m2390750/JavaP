@@ -11,6 +11,8 @@ public class App18_10 extends Frame implements MouseMotionListener
 	
 	public static void main(String args[])
 	{
+		
+		frm.addWindowListener(new WindowAdapter() {public void windowClosing(WindowEvent e) {System.exit(0);}});
 		frm.setLayout(null);
 		frm.addMouseMotionListener(frm);
 		
