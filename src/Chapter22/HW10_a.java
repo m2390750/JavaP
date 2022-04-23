@@ -1,5 +1,6 @@
 package Chapter22;
 import java.net.*;
+
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,6 +10,7 @@ public class HW10_a extends Frame implements ActionListener{
 	static TextArea txa=new TextArea("",8,14,TextArea.SCROLLBARS_NONE);
 	static public void main(String args[])
 	{
+		frm.addWindowListener(new WindowAdapter() {public void windowClosing(WindowEvent e) {System.exit(0);}});
 		BorderLayout br=new BorderLayout(2,2);
 		frm.setLayout(br);
 		frm.setSize(200,180);
@@ -36,13 +38,22 @@ public class HW10_a extends Frame implements ActionListener{
 				
 				Socket s=svs.accept();
 				txa.append("客戶端和本機連上線..."+"\n");
-				InputStream in=s.getInputStream();
+				InputStream in=s.getInputStream();//取得二進位資料
 				int n=in.read(buff);
 				
 				txa.append("從客戶端收到: ");
 				
-				String rec_str=new String(buff,0,n);
-				
+				String rec_str=new String(buff,0,n);//把取得的二進位資料轉換為新的字串 儲存在rec_str
+				System.out.println(buff);
+				System.out.println(buff);
+				System.out.println(buff);
+				System.out.println(n);
+				System.out.println(n);
+				System.out.println(n);
+				System.out.println(rec_str);
+				System.out.println(rec_str);
+				System.out.println(rec_str);
+				System.out.println("資料呢");
 				txa.append("傳回"+rec_str+"到客戶端"+"\n");
 				OutputStream out = s.getOutputStream();
 				out.write(rec_str.getBytes());

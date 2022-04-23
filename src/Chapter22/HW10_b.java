@@ -5,13 +5,15 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class HW10_b extends Frame implements ActionListener,TextListener
-{
+{	
+	
 	static HW10_b frm=new HW10_b();
 	static Button btn=new Button("連線+傳送");
 	static TextField txf=new TextField("請輸入欲傳送的資料");
 	static TextArea txa=new TextArea("",8,14,TextArea.SCROLLBARS_NONE);
 	static public void main(String args[])
 		{
+		frm.addWindowListener(new WindowAdapter() {public void windowClosing(WindowEvent e) {System.exit(0);}});
 		BorderLayout br=new BorderLayout(2,2);
 		frm.setLayout(br);
 		frm.setSize(200,180);
@@ -48,9 +50,9 @@ public class HW10_b extends Frame implements ActionListener,TextListener
 			String str=new String(buff,0,n);
 			txa.append(str+"\n");
 			
-//			in.close();		
-//			out.close();
-//			s.close();	
+			in.close();		
+			out.close();
+			s.close();	
 		
 		}
 		catch(Exception ee)
